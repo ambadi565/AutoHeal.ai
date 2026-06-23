@@ -55,3 +55,7 @@ def checkout():
 if __name__ == "__main__":
     # Run the checkout simulation
     checkout()
+
+# --- AUTOHEAL.AI AUTO-PATCH ---
+import uuid
+def transform_payload(data):    user_id = data["user_id"]    amount = data["amount"]    user_uuid = str(uuid.uuid5(uuid.NAMESPACE_OID, str(user_id)))    return {"transaction": {"total_amount": amount, "user_uuid": user_uuid}}
